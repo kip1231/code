@@ -1,0 +1,213 @@
+local function identifyexecutor()
+       return"CODE QUEST?"
+end
+getgenv().identifyexecutor = function()
+    return "CODE QUEST?"
+end
+
+getgenv().getexecutorname = function()
+    return "CODE QUEST?"
+end
+
+	local headers = game:GetService("HttpService"):JSONDecode(request({Url = "https://httpbin.org/get"}).Body).headers
+	local Fingerprint = ""
+	local UserIdentifier = ""
+	local UserAgent = "CODE QUEST?"
+	local oldr;oldr = hookfunction(request, function(options)
+		local h = options.Headers or {}
+		h['Syn-Fingerprint'] = KRNLHWID or Fingerprint
+		h['Syn-User-Identifier'] = KRNLUID or UserIdentifier
+		h['User-Agent'] = UserAgent
+		return oldr({
+			Url = options.Url,
+			Method = options.Method or "GET",
+			Headers = h,
+			Cookies = options.Cookies or {},
+			Body = options.Body or ""
+		})
+	end)
+	hookfunction(http_request, request)
+
+local blockedFunctions = {
+  "ReturnToJavaScript",
+  "EmitHybridEvent",
+  "PromptBundlePurchase",
+  "PromptGamePassPurchase",
+  "PromptProductPurchase",
+  "PromptRobloxPurchase",
+  "PromptThirdPartyPurchase",
+"PromptPurchase",
+  "Call",
+  "GetProtocolMethodRequestMessageId",
+  "GetProtocolMethodResponseMessageId",
+  "PublishProtocolMethodRequest",
+  "PublishProtocolMethodResponse",
+  "Subscribe",
+  "SubscribeToProtocolMethodRequest",
+  "SubscribeToProtocolMethodResponse"
+}
+local gameMetatable = getrawmetatable(game)
+local originalNamecall = gameMetatable.__namecall
+setreadonly(gameMetatable, false)
+
+gameMetatable.__namecall = newcclosure(function(self, ...)
+    local args = {...}
+    local method = getnamecallmethod()
+
+    if table.find(blockedFunctions, method) then
+        return nil
+    end
+
+    return originalNamecall(self, ...)
+end)
+
+setreadonly(gameMetatable, true)
+repeat task.wait() until game:IsLoaded()
+print("CODE QUEST???")
+
+repeat task.wait() until game:IsLoaded()
+local gui = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local title = Instance.new("TextLabel")
+local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
+local box = Instance.new("TextBox")
+local UICorner_2 = Instance.new("UICorner")
+local UITextSizeConstraint_2 = Instance.new("UITextSizeConstraint")
+local execute = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local UITextSizeConstraint_3 = Instance.new("UITextSizeConstraint")
+local clear = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
+local UITextSizeConstraint_4 = Instance.new("UITextSizeConstraint")
+
+gui.Name = "gui"
+gui.Parent = game.CoreGui
+gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+gui.Enabled = false
+main.Name = "main"
+main.Parent = gui
+main.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+main.BackgroundTransparency = 0.050
+main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+main.BorderSizePixel = 0
+main.Position = UDim2.new(0.353896111, 0, 0.438559324, 0)
+main.Size = UDim2.new(0.306818187, 0, 0.40466103, 0)
+main.Active = true
+main.Draggable = true
+
+UICorner.CornerRadius = UDim.new(0, 4)
+UICorner.Parent = main
+
+title.Name = "title"
+title.Parent = main
+title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+title.BackgroundTransparency = 1.000
+title.BorderColor3 = Color3.fromRGB(0, 0, 0)
+title.BorderSizePixel = 0
+title.Position = UDim2.new(0.235449731, 0, 0, 0)
+title.Size = UDim2.new(0.529100537, 0, 0.178010479, 0)
+title.Font = Enum.Font.Michroma
+title.Text = "CODE QUEST?"
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.TextScaled = true
+title.TextSize = 14.000
+title.TextWrapped = true
+
+UITextSizeConstraint.Parent = title
+UITextSizeConstraint.MaxTextSize = 22
+
+box.Name = "box"
+box.Parent = main
+box.BackgroundColor3 = Color3.fromRGB(131, 131, 131)
+box.BackgroundTransparency = 0.800
+box.BorderColor3 = Color3.fromRGB(76, 76, 76)
+box.BorderSizePixel = 0
+box.Position = UDim2.new(0.0767195746, 0, 0.209424078, 0)
+box.Size = UDim2.new(0.846560836, 0, 0.486910999, 0)
+box.ClearTextOnFocus = false
+box.Font = Enum.Font.SourceSans
+box.Text = ""
+box.TextColor3 = Color3.fromRGB(255, 255, 255)
+box.TextScaled = true
+box.TextSize = 30.000
+box.TextWrapped = true
+box.TextXAlignment = Enum.TextXAlignment.Left
+box.TextYAlignment = Enum.TextYAlignment.Top
+
+UICorner_2.CornerRadius = UDim.new(0, 3)
+UICorner_2.Parent = box
+
+UITextSizeConstraint_2.Parent = box
+UITextSizeConstraint_2.MaxTextSize = 30
+
+execute.Name = "execute"
+execute.Parent = main
+execute.BackgroundColor3 = Color3.fromRGB(131, 131, 131)
+execute.BackgroundTransparency = 0.800
+execute.BorderColor3 = Color3.fromRGB(0, 0, 0)
+execute.BorderSizePixel = 0
+execute.Position = UDim2.new(0.0767195746, 0, 0.753926694, 0)
+execute.Size = UDim2.new(0.388888896, 0, 0.178010479, 0)
+execute.Font = Enum.Font.SourceSansBold
+execute.Text = "Execute"
+execute.TextColor3 = Color3.fromRGB(255, 255, 255)
+execute.TextScaled = true
+execute.TextSize = 38.000
+execute.TextWrapped = true
+
+UICorner_3.CornerRadius = UDim.new(0, 3)
+UICorner_3.Parent = execute
+
+UITextSizeConstraint_3.Parent = execute
+UITextSizeConstraint_3.MaxTextSize = 38
+
+clear.Name = "clear"
+clear.Parent = main
+clear.BackgroundColor3 = Color3.fromRGB(131, 131, 131)
+clear.BackgroundTransparency = 0.800
+clear.BorderColor3 = Color3.fromRGB(0, 0, 0)
+clear.BorderSizePixel = 0
+clear.Position = UDim2.new(0.534391522, 0, 0.753926694, 0)
+clear.Size = UDim2.new(0.388888896, 0, 0.178010479, 0)
+clear.Font = Enum.Font.SourceSansBold
+clear.Text = "Clear"
+clear.TextColor3 = Color3.fromRGB(255, 255, 255)
+clear.TextScaled = true
+clear.TextSize = 38.000
+clear.TextWrapped = true
+
+UICorner_4.CornerRadius = UDim.new(0, 3)
+UICorner_4.Parent = clear
+
+UITextSizeConstraint_4.Parent = clear
+UITextSizeConstraint_4.MaxTextSize = 38
+
+-- Scripts:
+
+local code
+
+local function XNVQVYC_fake_script() -- box.Script 
+	local script = Instance.new('Script', box)
+
+	script.Parent.FocusLost:Connect(function()
+		code = box.Text
+	end)
+end
+coroutine.wrap(XNVQVYC_fake_script)()
+local function KXJGBTW_fake_script() -- execute.Script 
+	local script = Instance.new('Script', execute)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		pcall(loadstring(code))
+	end)
+end
+coroutine.wrap(KXJGBTW_fake_script)()
+local function GYDEWJE_fake_script() -- clear.Script 
+	local script = Instance.new('Script', clear)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		box.Text = ""
+	end)
+end
+coroutine.wrap(GYDEWJE_fake_script)()
