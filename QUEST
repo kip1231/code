@@ -64,6 +64,7 @@ end)
 setreadonly(gameMetatable, true)
 repeat task.wait() until game:IsLoaded()
 print("CODE QUEST???")
+print("ok")
 
 repeat task.wait() until game:IsLoaded()
 local gui = Instance.new("ScreenGui")
@@ -84,7 +85,6 @@ local UITextSizeConstraint_4 = Instance.new("UITextSizeConstraint")
 gui.Name = "gui"
 gui.Parent = game.CoreGui
 gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-gui.Enabled = true
 main.Name = "main"
 main.Parent = gui
 main.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
